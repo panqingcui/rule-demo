@@ -1,0 +1,22 @@
+name: Movie id rule
+compositeRuleType: UnitRuleGroup
+priority: 1
+composingRules:
+  - name: 300ff
+    description: 低于10万元
+    priority: 1
+    condition: "sales.value < 100000"
+    actions:
+      - "sales.salary = 3000"
+  - name: 3500dd
+    description: 高于等于 10万元，低于 15万元
+    priority: 1
+    condition: "sales.value >= 100000 && sales.value < 150000"
+    actions:
+      - "sales.salary = 3500"
+  - name: 4000ff
+    description: 高于等于 15万元，低于 25万元
+    priority: 1
+    condition: "sales.value >= 150000 && sales.value < 250000"
+    actions:
+      - "sales.salary = 4000"
